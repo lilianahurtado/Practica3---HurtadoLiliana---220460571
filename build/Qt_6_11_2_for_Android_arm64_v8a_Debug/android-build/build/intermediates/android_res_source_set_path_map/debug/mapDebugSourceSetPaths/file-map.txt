@@ -1,0 +1,16 @@
+org.qtproject.example.RobotP3-startup-runtime-1.1.1-0 /home/l/.gradle/caches/9.3.1/transforms/059c5320eb279988abbebb7bd2a3ff22/transformed/startup-runtime-1.1.1/res
+org.qtproject.example.RobotP3-core-1.17.0-1 /home/l/.gradle/caches/9.3.1/transforms/49b162bc391b7db084c7d41b2101c078/transformed/core-1.17.0/res
+org.qtproject.example.RobotP3-annotation-experimental-1.4.1-2 /home/l/.gradle/caches/9.3.1/transforms/644e46a4a9701a814812f04182e2e97e/transformed/annotation-experimental-1.4.1/res
+org.qtproject.example.RobotP3-core-runtime-2.2.0-3 /home/l/.gradle/caches/9.3.1/transforms/6c6ef7a61bd66e6712267582b8ad6dc4/transformed/core-runtime-2.2.0/res
+org.qtproject.example.RobotP3-tracing-1.2.0-4 /home/l/.gradle/caches/9.3.1/transforms/6dd3451e0dae79248891f4b4fb016cb6/transformed/tracing-1.2.0/res
+org.qtproject.example.RobotP3-lifecycle-runtime-2.6.2-5 /home/l/.gradle/caches/9.3.1/transforms/80911c141db1cd37e4f8d3074a996947/transformed/lifecycle-runtime-2.6.2/res
+org.qtproject.example.RobotP3-core-viewtree-1.0.0-6 /home/l/.gradle/caches/9.3.1/transforms/bb5dff7db4c1b3675e5ae692c2da1eab/transformed/core-viewtree-1.0.0/res
+org.qtproject.example.RobotP3-profileinstaller-1.3.0-7 /home/l/.gradle/caches/9.3.1/transforms/eb90ebd8397f2434b27e74a60f80caab/transformed/profileinstaller-1.3.0/res
+org.qtproject.example.RobotP3-pngs-8 /home/l/Projectos_Qt/Practica3-HurtadoLiliana/build/Qt_6_11_2_for_Android_arm64_v8a_Debug/android-build/build/generated/res/pngs/debug
+org.qtproject.example.RobotP3-updated_navigation_xml-9 /home/l/Projectos_Qt/Practica3-HurtadoLiliana/build/Qt_6_11_2_for_Android_arm64_v8a_Debug/android-build/build/generated/updated_navigation_xml/debug
+org.qtproject.example.RobotP3-packageDebugResources-10 /home/l/Projectos_Qt/Practica3-HurtadoLiliana/build/Qt_6_11_2_for_Android_arm64_v8a_Debug/android-build/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+org.qtproject.example.RobotP3-packageDebugResources-11 /home/l/Projectos_Qt/Practica3-HurtadoLiliana/build/Qt_6_11_2_for_Android_arm64_v8a_Debug/android-build/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+org.qtproject.example.RobotP3-debug-12 /home/l/Projectos_Qt/Practica3-HurtadoLiliana/build/Qt_6_11_2_for_Android_arm64_v8a_Debug/android-build/build/intermediates/merged_res/debug/mergeDebugResources
+org.qtproject.example.RobotP3-android-build-13 /home/l/Projectos_Qt/Practica3-HurtadoLiliana/build/Qt_6_11_2_for_Android_arm64_v8a_Debug/android-build/res
+org.qtproject.example.RobotP3-debug-14 /home/l/Projectos_Qt/Practica3-HurtadoLiliana/build/Qt_6_11_2_for_Android_arm64_v8a_Debug/android-build/src/debug/res
+org.qtproject.example.RobotP3-java-15 /home/l/Qt/6.11.2/android_arm64_v8a/src/android/java/res
