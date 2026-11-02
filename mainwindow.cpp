@@ -178,6 +178,18 @@ void MainWindow::construirInterfaz()
     setCentralWidget(central);
     setWindowTitle(tr("Robot P3 · Android"));
 
+    //Extra Alarma Sonora (buzzer)
+        //switch para la alarma de sonido
+        auto *chkAlarma = new QCheckBox(tr("Alarma Sonora"));
+    chkAlarma->setChecked(true); // Activa por defecto
+
+    //conectar el evento para enviar el estado por WebSocket
+    connect(chkAlarma, &QCheckBox::toggled, this, [this](bool activo) {
+        enviar({{"tipo", "alarma"}, {"estado", activo}});
+    });
+
+    filaDist->addWidget(chkAlarma);
+
     aplicarEstilosUI();
 
 }

@@ -10,6 +10,7 @@
 // 1) CREDENCIALES DE RED Y WEBSOCKET
 // ---------------------------------------------------------------------------
 
+
 const char* ssid     = "GWN571D04";
 const char* password = "ESP32CUCEI$$";
 
@@ -43,9 +44,10 @@ char accionActual[16] = "parar";
 // ---------------------------------------------------------------------------
 // 3) ASIGNACIÓN DE PINES Y VARIABLES DE CONTROL
 // ---------------------------------------------------------------------------
-const int PIN_SERVO  = 8;    
-const int TRIG_PIN   = 9;    
-const int ECHO_PIN   = 10;   
+const int PIN_SERVO  = 8;   
+const int TRIG_PIN   = 9;   
+const int ECHO_PIN   = 10;  
+const int BUZZER_PIN = 18;  
 
 Servo servo;
 int anguloActual = 90;
@@ -55,8 +57,11 @@ const int pulsoMaximo = 2400;
 float distanciaActual = 100.0;
 unsigned long ultimoMuestreoUS = 0;
 
-// Distancia de seguridad para detener el avance
+// Distancia de seguridad para detener el avance y sonar la alarma
 const float DISTANCIA_SEGURIDAD_CM = 25.0; 
+
+// Control de la alarma sonora desde la UI de Qt
+bool alarmaHabilitada = true; 
 
 // ---------------------------------------------------------------------------
 // FUNCIONES DE CONTROL DE MOTORES
@@ -133,6 +138,7 @@ float medirDistancia() {
   if (lecturasValidas == 0) return 400.0;
   return suma / lecturasValidas;
 }
+
 
 // ---------------------------------------------------------------------------
 // TAREA FREERTOS DE MOVIMIENTO
@@ -242,6 +248,13 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length
         serializeJson(docScan, res);
         webSocket.sendTXT(num, res);
       }
+      //Recibir activación/desactivación del Buzzer desde Qt
+      else if (strcmp(tipo, "alarma") == 0) {
+        alarmaHabilitada = doc["estado"] | true;
+        if (!alarmaHabilitada) {
+          digitalWrite(BUZZER_PIN, LOW); // Apaga de inmediato si se desactiva
+        }
+      }
       else if (strcmp(tipo, "latido") == 0) {
         JsonDocument docLatido;
         docLatido["tipo"] = "latido_ok";
@@ -264,6 +277,9 @@ void setup() {
 
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
+  
+  pinMode(BUZZER_PIN, OUTPUT);
+  digitalWrite(BUZZER_PIN, LOW);
 
   ESP32PWM::allocateTimer(0);
   servo.setPeriodHertz(50);
@@ -305,5 +321,13 @@ void loop() {
       motores_parar_total();
       strcpy(accionActual, "parar");
     }
+  }
+
+  // El buzzer solo suena continuo si se detecta obstáculo a <= 25 cm
+  // alarma está habilitada desde la UI de Qt.
+  if (alarmaHabilitada && distanciaActual <= DISTANCIA_SEGURIDAD_CM) {
+    digitalWrite(BUZZER_PIN, HIGH);
+  } else {
+    digitalWrite(BUZZER_PIN, LOW);
   }
 }
